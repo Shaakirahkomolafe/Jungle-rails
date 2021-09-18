@@ -8,37 +8,31 @@
     <h4>Thank you for your order!</h4>
   </div>
 
-  <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Order Details</h4>
-    </div>
-
-    <div >
-    <ul>
-    <% @order_item.each do |item| %>
-      <%product = Product.find(item.product_id)%>
-      <div class="col-sm-8">
-        <dl class="dl-horizontal">
-          <dt>Name</dt>
-         <dd><%= product.name %></dd>
-          <dt>Description</dt>
-          <dd><%= product.description %></dd>
-          <dt>Quantity</dt>
-          <dd><%= item.quantity %></dd>
-          <dt>Image</dt>
-          <dd> <%= image_tag product.image.url, class: 'main-img' %></dd>
-          <dt>Price</dt>
-         <dd><%= humanized_money_with_symbol item.total_price_cents / 100.0%></dd>
-         <% end %>
-         <dt>Email</dt>
-          <dd><%= @order.email %></dd>
-        </dl>
-      </div> 
-  </ul>
-    </div>
+    <h1> Order Details</h1>
+ 
+    <table  class="table table-image">
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Description </th>
+        <th> Quantity </th>
+        <th> Price </th>
+        <th> Email </th>
+      </tr>
+     <% @order_item.each do |item| %>
+        <%product = Product.find(item.product_id)%>
+        <tr>
+          <td><%=product.name  %></td>
+        <td><%= image_tag product.image.url, class: 'main-img' %></td>
+         <td><%= product.description %></td>
+         <td><%= item.quantity %> </td>
+        <td><%= humanized_money_with_symbol item.total_price_cents / 100.0%> </td>
+       <td> <%= @order.email %></td>
+        </tr>
+      <% end %>
+    </table>  
 </section>
 <div>
-<div>
-    <strong> Total Price = <%= humanized_money_with_symbol @order.total_cents / 100.0%></strong>
-    </div>
-<%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+    <label> Total Price = <%= humanized_money_with_symbol @order.total_cents / 100.0%></label>
 </div>
+<%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
