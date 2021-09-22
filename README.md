@@ -20,6 +20,11 @@ ail
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
 
+## Screenshot 
+!["About us page"](https://github.com/Shaakirahkomolafe/Jungle-rails/blob/master/docs/about.jpeg)
+!["Empty cart"](https://github.com/Shaakirahkomolafe/Jungle-rails/blob/master/docs/emptycart.jpeg)
+!["sign up page"](https://github.com/Shaakirahkomolafe/Jungle-rails/blob/master/docs/signup.jpeg)
+
 ## Stripe Testing
 
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
